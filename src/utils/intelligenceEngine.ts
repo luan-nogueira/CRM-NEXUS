@@ -1,11 +1,11 @@
 import type { Client, FilterState, ProductCategoryKey } from '../types/crm';
 
 export const CATEGORIES_CONFIG = [
-  { key: 'dryGoods' as ProductCategoryKey, label: 'Linha Seca', color: '#f59e0b', description: 'Farinhas, Grãos, Óleos, Conservas, Molhos' },
-  { key: 'dairyRefrigerated' as ProductCategoryKey, label: 'Refrigerados & Laticínios', color: '#06b6d4', description: 'Queijos, Manteigas, Iogurtes, Embutidos' },
-  { key: 'frozen' as ProductCategoryKey, label: 'Congelados', color: '#3b82f6', description: 'Polpas, Hambúrgueres, Pratos Prontos, Batatas' },
-  { key: 'beverages' as ProductCategoryKey, label: 'Bebidas', color: '#8b5cf6', description: 'Sucos, Refrigerantes, Águas, Cervejas Artesanais' },
-  { key: 'cleaning' as ProductCategoryKey, label: 'Higiene & Limpeza', color: '#10b981', description: 'Detergentes Industriais, Desinfetantes, Descartáveis' },
+  { key: 'dryGoods' as ProductCategoryKey, label: 'Linha Seca', color: '#475569', description: 'Farinhas, Grãos, Óleos, Conservas, Molhos' },
+  { key: 'dairyRefrigerated' as ProductCategoryKey, label: 'Refrigerados & Laticínios', color: '#334155', description: 'Queijos, Manteigas, Iogurtes, Embutidos' },
+  { key: 'frozen' as ProductCategoryKey, label: 'Congelados', color: '#64748b', description: 'Polpas, Hambúrgueres, Pratos Prontos, Batatas' },
+  { key: 'beverages' as ProductCategoryKey, label: 'Bebidas', color: '#1e293b', description: 'Sucos, Refrigerantes, Águas, Cervejas Artesanais' },
+  { key: 'cleaning' as ProductCategoryKey, label: 'Higiene & Limpeza', color: '#0f172a', description: 'Detergentes Industriais, Desinfetantes, Descartáveis' },
 ];
 
 /**
@@ -52,7 +52,7 @@ export function generateWhatsAppPitch(client: Client): string {
   }
 
   if (missingCategories.length > 0 && Math.random() > 0.4) {
-    message += `💡 Também estamos com uma condição excelente na nossa linha de *${missingCategories[0]}*, que você ainda não testou na loja.\n\n`;
+    message += `Também estamos com uma condição excelente na nossa linha de *${missingCategories[0]}*, que você ainda não testou na loja.\n\n`;
   }
 
   message += `Conseguimos faturar com entrega expressa para você amanhã. Posso emitir o pedido?`;

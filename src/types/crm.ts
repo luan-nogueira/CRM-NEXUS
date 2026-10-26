@@ -1,4 +1,4 @@
-export type AppTheme = 'dark' | 'light' | 'navy' | 'gold';
+export type AppTheme = 'light' | 'dark';
 
 export type ClientStatus = 'active' | 'in_window' | 'overdue' | 'churn_risk' | 'inactive';
 

@@ -17,12 +17,13 @@ import './App.css';
 
 export function App() {
   const [currentTheme, setCurrentTheme] = useState<AppTheme>(() => {
-    return (localStorage.getItem('pulse_crm_theme') as AppTheme) || 'dark';
+    return (localStorage.getItem('atlas_crm_theme') as AppTheme) || 
+           (localStorage.getItem('pulse_crm_theme') as AppTheme) || 'dark';
   });
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', currentTheme);
-    localStorage.setItem('pulse_crm_theme', currentTheme);
+    localStorage.setItem('atlas_crm_theme', currentTheme);
   }, [currentTheme]);
 
   const [clients, setClients] = useState<Client[]>(INITIAL_CLIENTS);

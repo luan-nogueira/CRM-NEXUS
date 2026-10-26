@@ -1,6 +1,6 @@
 import React from 'react';
 import { 
-  Sparkles, 
+  Compass, 
   CalendarCheck, 
   TrendingDown, 
   BarChart3, 
@@ -10,7 +10,7 @@ import {
   DollarSign, 
   AlertTriangle, 
   CheckCircle2,
-  Palette
+  SlidersHorizontal
 } from 'lucide-react';
 import type { Client, DailyQueueProgress, AppTheme } from '../types/crm';
 import { formatCurrency } from '../utils/intelligenceEngine';
@@ -42,7 +42,6 @@ export const Header: React.FC<HeaderProps> = ({
   currentTheme,
   onSelectTheme
 }) => {
-  // Aggregate KPIs
   const filteredClients = selectedSeller === 'all'
     ? clients
     : clients.filter(c => c.sellerId === selectedSeller || c.sellerName === selectedSeller);
@@ -57,25 +56,24 @@ export const Header: React.FC<HeaderProps> = ({
       <div className="header-top">
         <div className="brand-group">
           <div className="brand-icon">
-            <Sparkles size={22} className="sparkle-anim" />
+            <Compass size={22} />
           </div>
           <div>
             <div className="brand-title-wrap">
-              <span className="brand-title">NEXUS</span>
-              <span className="brand-badge">SALES INTELLIGENCE</span>
-              <span className="pulse-dot" title="Algoritmo Comercial Ativo"></span>
+              <span className="brand-title">ATLAS</span>
+              <span className="brand-badge">VENDAS</span>
             </div>
-            <p className="brand-subtitle">Gestão de Workflow & Inteligência Comercial Baseada em Dados</p>
+            <p className="brand-subtitle">Gestão de Workflow e Inteligência Comercial</p>
           </div>
         </div>
 
-        {/* Global Search & Seller Selector */}
+        {/* Global Search, Seller & Theme Selector */}
         <div className="header-actions">
           <div className="search-box">
-            <Search size={16} className="search-icon" />
+            <Search size={15} className="search-icon" />
             <input 
               type="text" 
-              placeholder="Buscar cliente, CNPJ, rede ou comprador..." 
+              placeholder="Buscar cliente, CNPJ ou comprador..." 
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="search-input"
@@ -92,25 +90,23 @@ export const Header: React.FC<HeaderProps> = ({
               onChange={(e) => setSelectedSeller(e.target.value)}
               className="seller-select"
             >
-              <option value="all">Equipe Completa ({clients.length} clientes)</option>
+              <option value="all">Equipe Completa ({clients.length} contas)</option>
               {sellers.map(s => (
                 <option key={s.id} value={s.id}>{s.name}</option>
               ))}
             </select>
           </div>
 
-          <div className="theme-selector-wrap" title="Alterar Tema Visual">
-            <Palette size={15} className="theme-icon text-cyan" />
+          <div className="theme-selector-wrap">
+            <SlidersHorizontal size={14} className="theme-icon" />
             <label className="theme-label">Tema:</label>
             <select 
               value={currentTheme}
               onChange={(e) => onSelectTheme(e.target.value as AppTheme)}
               className="theme-select"
             >
-              <option value="dark">🌙 Dark Slate</option>
-              <option value="light">☀️ Light Clean</option>
-              <option value="navy">🌊 Royal Navy</option>
-              <option value="gold">👑 Obsidian Gold</option>
+              <option value="light">Claro</option>
+              <option value="dark">Escuro</option>
             </select>
           </div>
         </div>
@@ -118,30 +114,30 @@ export const Header: React.FC<HeaderProps> = ({
 
       {/* Real-time Commercial KPI Ribbon */}
       <div className="kpi-ribbon">
-        <div className="kpi-card highlight-emerald">
-          <div className="kpi-icon-wrap emerald">
+        <div className="kpi-card">
+          <div className="kpi-icon-wrap">
             <DollarSign size={18} />
           </div>
           <div className="kpi-info">
             <span className="kpi-label">Potencial da Carteira</span>
             <span className="kpi-value">{formatCurrency(totalPotential)}</span>
-            <span className="kpi-sub">Faturamento real recorrente</span>
+            <span className="kpi-sub">Faturamento recorrente</span>
           </div>
         </div>
 
-        <div className="kpi-card highlight-amber">
-          <div className="kpi-icon-wrap amber">
+        <div className="kpi-card">
+          <div className="kpi-icon-wrap">
             <AlertTriangle size={18} />
           </div>
           <div className="kpi-info">
             <span className="kpi-label">Dinheiro na Mesa</span>
-            <span className="kpi-value text-amber">{formatCurrency(moneyOnTheTable)}</span>
-            <span className="kpi-sub">{atRiskCount} clientes em atraso / risco</span>
+            <span className="kpi-value">{formatCurrency(moneyOnTheTable)}</span>
+            <span className="kpi-sub">{atRiskCount} clientes em atraso ou risco</span>
           </div>
         </div>
 
-        <div className="kpi-card highlight-cyan">
-          <div className="kpi-icon-wrap cyan">
+        <div className="kpi-card">
+          <div className="kpi-icon-wrap">
             <CalendarCheck size={18} />
           </div>
           <div className="kpi-info">
@@ -149,17 +145,17 @@ export const Header: React.FC<HeaderProps> = ({
             <span className="kpi-value">
               {queueProgress.contactedCount} / {filteredClients.length}
             </span>
-            <span className="kpi-sub">Contatos executados hoje</span>
+            <span className="kpi-sub">Contatos realizados hoje</span>
           </div>
         </div>
 
-        <div className="kpi-card highlight-indigo">
-          <div className="kpi-icon-wrap indigo">
+        <div className="kpi-card">
+          <div className="kpi-icon-wrap">
             <CheckCircle2 size={18} />
           </div>
           <div className="kpi-info">
             <span className="kpi-label">Vendas Fechadas Hoje</span>
-            <span className="kpi-value text-emerald">{formatCurrency(queueProgress.ordersPlacedTotal)}</span>
+            <span className="kpi-value">{formatCurrency(queueProgress.ordersPlacedTotal)}</span>
             <span className="kpi-sub">{queueProgress.ordersPlacedCount} pedidos confirmados</span>
           </div>
         </div>
@@ -171,42 +167,42 @@ export const Header: React.FC<HeaderProps> = ({
           className={`nav-tab ${activeTab === 'daily-plan' ? 'active' : ''}`}
           onClick={() => setActiveTab('daily-plan')}
         >
-          <CalendarCheck size={18} />
-          <span>Plano do Dia (Fila de Atendimento)</span>
-          <span className="tab-pill tab-pill-emerald">{filteredClients.length}</span>
+          <CalendarCheck size={16} />
+          <span>Plano do Dia</span>
+          <span className="tab-pill">{filteredClients.length}</span>
         </button>
 
         <button 
           className={`nav-tab ${activeTab === 'intelligence' ? 'active' : ''}`}
           onClick={() => setActiveTab('intelligence')}
         >
-          <TrendingDown size={18} />
-          <span>Inteligência de Vendas (Quedas & Sugestão)</span>
-          <span className="tab-pill tab-pill-amber">{atRiskCount} alertas</span>
+          <TrendingDown size={16} />
+          <span>Inteligência de Vendas</span>
+          <span className="tab-pill">{atRiskCount}</span>
         </button>
 
         <button 
           className={`nav-tab ${activeTab === 'performance' ? 'active' : ''}`}
           onClick={() => setActiveTab('performance')}
         >
-          <BarChart3 size={18} />
-          <span>Comparativo (Mês / M-1 / Ano Anterior)</span>
+          <BarChart3 size={16} />
+          <span>Comparativo de Desempenho</span>
         </button>
 
         <button 
           className={`nav-tab ${activeTab === 'mix' ? 'active' : ''}`}
           onClick={() => setActiveTab('mix')}
         >
-          <Layers size={18} />
-          <span>Expansão de Mix & Categorias</span>
+          <Layers size={16} />
+          <span>Expansão de Mix</span>
         </button>
 
         <button 
           className={`nav-tab ${activeTab === 'clients' ? 'active' : ''}`}
           onClick={() => setActiveTab('clients')}
         >
-          <Users size={18} />
-          <span>Carteira & Redes Econômicas</span>
+          <Users size={16} />
+          <span>Carteira e Redes</span>
         </button>
       </nav>
     </header>

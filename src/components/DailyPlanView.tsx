@@ -5,16 +5,15 @@ import {
   CheckCircle, 
   Clock, 
   ChevronRight, 
-  Sparkles, 
   Calendar, 
   AlertCircle, 
   ShoppingCart, 
   Eye, 
-  Flame,
-  ArrowRight,
-  TrendingDown,
-  Building2,
-  UserCheck
+  ArrowRight, 
+  TrendingDown, 
+  Building2, 
+  UserCheck,
+  Layers
 } from 'lucide-react';
 import type { Client, InteractionLog } from '../types/crm';
 import { formatCurrency } from '../utils/intelligenceEngine';
@@ -67,7 +66,7 @@ export const DailyPlanView: React.FC<DailyPlanViewProps> = ({
   if (queueClients.length === 0) {
     return (
       <div className="empty-state glass-panel">
-        <Sparkles size={48} className="text-emerald" />
+        <CheckCircle size={36} />
         <h3>Nenhum cliente pendente com os filtros selecionados</h3>
         <p>Ajuste os filtros de data de corte ou categoria para carregar mais atendimentos.</p>
       </div>
@@ -130,7 +129,7 @@ export const DailyPlanView: React.FC<DailyPlanViewProps> = ({
                 <div className="card-client-name">
                   <h4>{client.tradeName}</h4>
                   <span className="client-network-tag">
-                    {client.economicGroup !== 'Avulso' ? `🏢 ${client.economicGroup}` : `📍 ${client.city}/${client.state}`}
+                    {client.economicGroup !== 'Avulso' ? client.economicGroup : `${client.city}/${client.state}`}
                   </span>
                 </div>
 
@@ -211,13 +210,12 @@ export const DailyPlanView: React.FC<DailyPlanViewProps> = ({
             </div>
           </div>
 
-          {/* Alert Diagnostic Box */}
-          <div className={`diagnosis-alert ${currentClient.churnRisk === 'critical' || currentClient.churnRisk === 'high' ? 'alert-critical' : 'alert-warning'}`}>
+          <div className="diagnosis-alert alert-warning">
             <div className="diagnosis-icon">
-              {currentClient.churnRisk === 'critical' ? <Flame size={20} className="text-rose" /> : <AlertCircle size={20} className="text-amber" />}
+              <AlertCircle size={18} />
             </div>
             <div className="diagnosis-body">
-              <strong>Diagnóstico de Inteligência Comercial:</strong>
+              <strong>Diagnóstico Comercial:</strong>
               <p>{currentClient.churnReason}</p>
             </div>
           </div>
@@ -305,10 +303,10 @@ export const DailyPlanView: React.FC<DailyPlanViewProps> = ({
           <div className="suggested-order-section">
             <div className="section-title-wrap">
               <div className="title-with-icon">
-                <Sparkles size={18} className="text-emerald" />
-                <h3>Sugestão de Pedido Inteligente (Baseada no Giro Real)</h3>
+                <Layers size={16} />
+                <h3>Sugestão de Reposição Baseada no Histórico</h3>
               </div>
-              <span className="section-hint">Produtos cruzados com o histórico de compra e consumo médio</span>
+              <span className="section-hint">Giro médio calculado a partir dos pedidos anteriores</span>
             </div>
 
             <div className="suggested-table-wrap">
@@ -391,7 +389,7 @@ export const DailyPlanView: React.FC<DailyPlanViewProps> = ({
                 className="btn-outcome btn-outcome-deal"
               >
                 <CheckCircle size={15} />
-                <span>Pedido Fechado 🎉</span>
+                <span>Pedido Fechado</span>
               </button>
 
               <button 

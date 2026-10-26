@@ -130,11 +130,11 @@ export const FilterBar: React.FC<FilterBarProps> = ({
             className="filter-select"
           >
             <option value="all">Todos os Status</option>
-            <option value="overdue">🚨 Em Atraso de Reposição</option>
-            <option value="churn_risk">⚠️ Risco de Churn / Queda</option>
-            <option value="in_window">⏳ Na Janela de Recompra</option>
-            <option value="active">✅ Em Dia / Ativo</option>
-            <option value="inactive">🛑 Inativo (&gt; 60 dias)</option>
+            <option value="overdue">Em Atraso de Reposição</option>
+            <option value="churn_risk">Risco de Churn / Queda</option>
+            <option value="in_window">Na Janela de Recompra</option>
+            <option value="active">Em Dia / Ativo</option>
+            <option value="inactive">Inativo (&gt; 60 dias)</option>
           </select>
         </div>
       </div>

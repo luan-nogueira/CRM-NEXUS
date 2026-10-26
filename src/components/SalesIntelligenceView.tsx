@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { 
   TrendingDown, 
   Clock, 
-  Sparkles, 
+  Package, 
   ArrowDownRight, 
   AlertTriangle, 
   ShoppingCart, 
@@ -75,9 +75,9 @@ export const SalesIntelligenceView: React.FC<SalesIntelligenceViewProps> = ({
           className={`subnav-btn ${activeSubTab === 'suggestions' ? 'active' : ''}`}
           onClick={() => setActiveSubTab('suggestions')}
         >
-          <Sparkles size={18} />
-          <span>Sugestão de Pedidos Inteligente</span>
-          <span className="badge badge-emerald">{highProbabilityProducts.length} itens mapeados</span>
+          <Package size={16} />
+          <span>Sugestão de Reposição</span>
+          <span className="badge">{highProbabilityProducts.length} itens</span>
         </button>
       </div>
 
@@ -103,8 +103,8 @@ export const SalesIntelligenceView: React.FC<SalesIntelligenceViewProps> = ({
                 <div className="churn-card-top">
                   <div>
                     <div className="churn-risk-badge">
-                      <span className={`badge ${client.churnRisk === 'critical' ? 'badge-rose' : 'badge-amber'}`}>
-                        {client.churnRisk === 'critical' ? '🔴 Risco Crítico de Churn' : '🟠 Queda Acentuada'}
+                      <span className="badge">
+                        {client.churnRisk === 'critical' ? 'Risco Crítico' : 'Queda de Volume'}
                       </span>
                       <span className="seller-tag">Vendedor: {client.sellerName}</span>
                     </div>

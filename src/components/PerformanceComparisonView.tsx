@@ -232,7 +232,7 @@ export const PerformanceComparisonView: React.FC<PerformanceComparisonViewProps>
           {categoryStats.map(cat => (
             <div key={cat.key} className="cat-perf-card glass-panel">
               <div className="cat-perf-top">
-                <span className="cat-badge" style={{ backgroundColor: `${cat.color}25`, color: cat.color }}>
+                <span className="cat-badge">
                   {cat.label}
                 </span>
                 <span className="cat-pen-rate">{cat.penetrationRate.toFixed(0)}% do Potencial</span>
@@ -241,10 +241,10 @@ export const PerformanceComparisonView: React.FC<PerformanceComparisonViewProps>
               <div className="cat-sales-row">
                 <div className="cat-sale-item">
                   <span className="cs-lbl">Faturamento Atual:</span>
-                  <span className="cs-val" style={{ color: cat.color }}>{formatCurrency(cat.currentSales)}</span>
+                  <span className="cs-val">{formatCurrency(cat.currentSales)}</span>
                 </div>
                 <div className="cat-sale-item">
-                  <span className="cs-lbl">Potencial Total Estimado:</span>
+                  <span className="cs-lbl">Potencial Estimado:</span>
                   <span className="cs-val">{formatCurrency(cat.potentialSales)}</span>
                 </div>
               </div>
@@ -252,7 +252,7 @@ export const PerformanceComparisonView: React.FC<PerformanceComparisonViewProps>
               <div className="cat-progress-track">
                 <div 
                   className="cat-progress-bar"
-                  style={{ width: `${cat.penetrationRate}%`, backgroundColor: cat.color }}
+                  style={{ width: `${cat.penetrationRate}%` }}
                 ></div>
               </div>
 

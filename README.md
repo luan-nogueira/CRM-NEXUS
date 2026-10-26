@@ -1,76 +1,74 @@
-# CRM NEXUS - Inteligência Comercial e Gestão de Vendas
+# Atlas Vendas - Inteligencia Comercial e Gestao de Carteiras
 
-Sistema avançado de gestão e inteligência comercial para equipes de vendas B2B e distribuição, orientado a dados e automação do histórico de compras.
+Sistema corporativo de gestao de vendas e inteligencia comercial para equipes de distribuicao, atacado e B2B. A plataforma automatiza o historico de faturamento dos clientes para calcular potencial financeiro, identificar riscos de churn e orientar a rotina comercial diaria.
 
-🌐 **Acesso Online (Produção)**: [https://crm-nexus-phi.vercel.app](https://crm-nexus-phi.vercel.app)
-
----
-
-## 🎯 Principais Módulos
-
-### 1. 📋 Plano do Dia (Gestão de Workflow)
-- **Fila Priorizada Algoritmicamente**: Ranqueamento de atendimento baseado em dinheiro na mesa, atraso do ciclo de recompra e gravidade de risco de churn.
-- **Foco do Vendedor**: Stepper interativo com métricas operacionais (Ciclo Médio, Última Compra, Potencial Estimado R$, Dinheiro na Mesa).
-- **Diagnóstico Comercial**: Alertas em tempo real indicando as causas da perda de tração da conta.
-- **Ações Imediatas**:
-  - 💬 **WhatsApp Inteligente**: Script de abordagem gerado automaticamente com produtos recomendados e link direto para WhatsApp Web.
-  - 📞 **Ligação / Telefone**: Atalho de contato direto.
-  - 🔍 **Raio-X 360°**: Histórico financeiro, penetração de mix e interações anteriores.
-- **Registro de Resultados**: Registro de contatos (Ligação, WhatsApp, Visita, Pedido Fechado 🎉, Reagendamento) avançando sequencialmente pela fila.
-
-### 2. 🧠 Inteligência de Vendas (Módulo Analítico)
-- **Detecção de Quedas & Churn**: Identificação de clientes reduzindo volume, faturamento ou frequência de compras (MoM e YoY).
-- **Análise de Recorrência**: Curva de reposição com mapeamento de lead time e alertas de desvio de estoque.
-- **Sugestão de Pedidos**: Recomendações de SKUs de maior probabilidade cruzadas com o giro habitual de consumo do cliente.
-
-### 3. 📊 Comparativo de Desempenho Multi-Período
-- Comparação direta: **Mês Atual vs Mês Anterior (M-1) vs Mesmo Mês do Ano Anterior (YoY)**.
-- Gráficos de barras comparativas e visualização por cliente ou por linha de produto (Linha Seca, Laticínios & Refrigerados, Congelados, Bebidas, Higiene & Limpeza).
-
-### 4. 🎯 Expansão de Mix & Cross-Selling
-- Matriz de penetração de categorias por cliente.
-- Cálculo do "Dinheiro Oculto" (receita incremental potencial de linhas não ativadas).
-
-### 5. 👥 Carteira & Redes Econômicas
-- Gestão consolidada por grupos e redes comerciais (Matriz e Filiais) e clientes avulsos.
-
-### 6. 🎨 Seletor Multi-Temas
-- 🌙 **Dark Slate (Padrão)**: Interface dark cyber moderna com realces em esmeralda.
-- ☀️ **Light Clean**: Visual executivo claro e de alto contraste.
-- 🌊 **Royal Navy**: Azul marinho corporativo com detalhes em ciano e safira.
-- 👑 **Obsidian Gold**: Acabamento luxuoso em tons âmbar e dourado.
+Acesso em Producao: [https://crm-nexus-phi.vercel.app](https://crm-nexus-phi.vercel.app)
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## Modulos do Sistema
 
-- **React 19** + **TypeScript**
-- **Vite**
-- **Vanilla CSS Tokens** (sem Tailwind, máxima flexibilidade e controle)
-- **Lucide React** (Ícones modernos)
-- **Canvas Confetti** (Efeitos visuais)
+### 1. Plano do Dia (Workflow Operacional)
+- **Fila Sequencial Priorizada**: Algoritmo que ordena o atendimento considerando valor financeiro em aberto (dinheiro na mesa), dias de atraso em relacao ao ciclo medio de recompra e nivel de risco da conta.
+- **Painel do Vendedor**: Metricas por cliente (Ciclo Medio, Ultima Compra, Potencial Estimado R$, Desvio de Reposicao).
+- **Diagnostico de Atraso**: Indicadores dos motivos de quebra de frequencia do cliente.
+- **Acoes de Contato**:
+  - **WhatsApp**: Geracao estruturada de proposta e recomendacao de itens com abertura direta de conversa.
+  - **Telefone**: Discagem e contato imediato.
+  - **Raio-X 360**: Dimensoes cadastrais, historico de faturamento e historico de pedidos.
+- **Registro de Desfecho**: Registro do status de atendimento (Ligacao, WhatsApp, Visita, Pedido Fechado, Reagendamento) avancando a fila de forma orientada.
+
+### 2. Inteligencia de Vendas
+- **Deteccao de Quedas e Churn**: Identificacao de clientes com declinio de faturamento ou interrupcao no padrao de compras (MoM e YoY).
+- **Curva de Recorrencia**: Acompanhamento de lead time de recompra e desvio de estoque previsto.
+- **Sugestao de Pedidos**: SKUs sugeridos com base no giro historico e probabilidade de reposicao.
+
+### 3. Comparativo de Desempenho
+- Acompanhamento multiperiodo: Mes Atual vs Mes Anterior (M-1) vs Mesmo Mes do Ano Anterior (YoY).
+- Comparativo consolidado por carteira, cliente e categorias de produto.
+
+### 4. Expansao de Mix
+- Matriz de penetracao de categorias por conta.
+- Mapeamento de linhas inativas e projecao de faturamento potencial.
+
+### 5. Redes Economicas e Unidades
+- Consolidacao de matrizes, filiais e compradores com visao financeira unificada.
+
+### 6. Temas Corporativos
+- **Escuro**: Paleta grafite e preto neutro de alto contraste para ambientes corporativos.
+- **Claro**: Estilo minimalista com fundo neutro claro e tipografia solida.
 
 ---
 
-## 🚀 Como Executar Localmente
+## Arquitetura Tecnica
 
-1. Clone o repositório:
+- **Frontend**: React 19, TypeScript
+- **Build & Bundler**: Vite
+- **Estilos**: Design system em Vanilla CSS com variaveis semanticas
+- **Iconografia**: Lucide React
+- **Deploy**: Vercel
+
+---
+
+## Execucao Local
+
+1. Clonar o repositorio:
 ```bash
 git clone https://github.com/luan-nogueira/CRM-NEXUS.git
 cd CRM-NEXUS
 ```
 
-2. Instale as dependências:
+2. Instalar dependencias:
 ```bash
 npm install
 ```
 
-3. Inicie o servidor de desenvolvimento:
+3. Executar o servidor de desenvolvimento:
 ```bash
 npm run dev
 ```
 
-4. Acesse no navegador:
+4. Acessar no navegador:
 ```
-http://localhost:5173/
+http://localhost:5173
 ```

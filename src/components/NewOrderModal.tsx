@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { ShoppingCart, Check, X, Trash2 } from 'lucide-react';
-import confetti from 'canvas-confetti';
 import type { Client } from '../types/crm';
 import { formatCurrency } from '../utils/intelligenceEngine';
 
@@ -37,7 +36,7 @@ export const NewOrderModal: React.FC<NewOrderModalProps> = ({
   );
 
   const [paymentTerms, setPaymentTerms] = useState('28 dias (Boleto Bancário)');
-  const [notes, setNotes] = useState('Pedido gerado a partir da sugestão de reposição inteligente.');
+  const [notes, setNotes] = useState('Pedido gerado a partir da sugestão de reposição.');
 
   const handleQtyChange = (id: string, qty: number) => {
     setItems(prev => prev.map(item => item.id === id ? { ...item, qty: Math.max(qty, 0) } : item));
@@ -51,13 +50,6 @@ export const NewOrderModal: React.FC<NewOrderModalProps> = ({
   const activeItemsCount = items.filter(i => i.qty > 0).length;
 
   const handleConfirmOrder = () => {
-    // Trigger festive confetti
-    confetti({
-      particleCount: 120,
-      spread: 70,
-      origin: { y: 0.6 }
-    });
-
     onOrderCompleted(client.id, orderTotal, activeItemsCount, notes);
     onClose();
   };

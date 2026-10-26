@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MessageSquare, Copy, Check, ExternalLink, X, Sparkles } from 'lucide-react';
+import { MessageSquare, Copy, Check, ExternalLink, X, Info } from 'lucide-react';
 import type { Client } from '../types/crm';
 import { generateWhatsAppPitch } from '../utils/intelligenceEngine';
 
@@ -41,10 +41,10 @@ export const WhatsAppModal: React.FC<WhatsAppModalProps> = ({
         <div className="modal-header">
           <div className="modal-title-wrap">
             <div className="wa-icon-badge">
-              <MessageSquare size={20} className="text-emerald" />
+              <MessageSquare size={18} />
             </div>
             <div>
-              <h3>WhatsApp Inteligente - {client.tradeName}</h3>
+              <h3>Mensagem WhatsApp - {client.tradeName}</h3>
               <span className="modal-sub">
                 Comprador: <strong>{client.buyerName}</strong> ({client.whatsapp})
               </span>
@@ -57,10 +57,10 @@ export const WhatsAppModal: React.FC<WhatsAppModalProps> = ({
 
         <div className="modal-body">
           <div className="ai-script-notice">
-            <Sparkles size={16} className="text-emerald" />
+            <Info size={16} />
             <span>
-              Mensagem gerada automaticamente pelo algoritmo com base no tempo de reposição ({client.daysWithoutPurchase} dias) 
-              e nos produtos de alto giro do cliente.
+              Mensagem gerada com base no ciclo de reposição ({client.daysWithoutPurchase} dias) 
+              e no giro de compras habitual.
             </span>
           </div>
 

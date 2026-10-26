@@ -81,7 +81,6 @@ export const MixExpansionView: React.FC<MixExpansionViewProps> = ({
               className={`cat-pill-btn ${selectedCategory === cat.key ? 'active' : ''}`}
               onClick={() => setSelectedCategory(cat.key)}
             >
-              <span className="color-dot" style={{ backgroundColor: cat.color }}></span>
               {cat.label} ({count})
             </button>
           );
@@ -91,36 +90,34 @@ export const MixExpansionView: React.FC<MixExpansionViewProps> = ({
       {/* Cross-Selling Opportunities List */}
       <div className="opportunities-card glass-panel">
         <div className="opp-header">
-          <h3>Oportunidades Ranqueadas de Ativação de Mix</h3>
-          <span className="opp-sub">Ordenado pelo maior potencial financeiro estimado</span>
+          <h3>Oportunidades de Ativação de Mix</h3>
+          <span className="opp-sub">Ordenado por potencial financeiro estimado</span>
         </div>
 
         <div className="opportunities-grid">
           {filteredOpportunities.map((opp, index) => {
-            const catConfig = CATEGORIES_CONFIG.find(c => c.key === opp.category.key);
-
             return (
               <div key={`${opp.client.id}-${opp.category.key}-${index}`} className="opp-box glass-panel">
                 <div className="opp-box-header">
                   <div>
-                    <span className="badge badge-emerald">#{index + 1} Maior Potencial</span>
+                    <span className="badge">Prioridade {index + 1}</span>
                     <h4>{opp.client.tradeName}</h4>
                     <span className="opp-meta">{opp.client.segment} • {opp.client.city} • Vendedor: {opp.client.sellerName}</span>
                   </div>
 
                   <div className="opp-value-box">
-                    <span className="opp-val-label">Potencial Incremental</span>
-                    <span className="opp-val text-emerald">+{formatCurrency(opp.unclaimedMoney)}/mês</span>
+                    <span className="opp-val-label">Potencial Estimado</span>
+                    <span className="opp-val">+{formatCurrency(opp.unclaimedMoney)}/mês</span>
                   </div>
                 </div>
 
                 <div className="opp-cat-row">
-                  <div className="cat-target-pill" style={{ borderColor: catConfig?.color, color: catConfig?.color }}>
+                  <div className="cat-target-pill">
                     <Layers size={14} />
                     <strong>Linha Alvo: {opp.category.label}</strong>
                   </div>
                   <span className="opp-gap-reason">
-                    <strong>Motivo do Gap:</strong> {opp.category.gapReason || 'Cliente ainda não testou esta linha com nossa empresa.'}
+                    <strong>Observação:</strong> {opp.category.gapReason || 'Cliente ainda não consome esta linha com nossa empresa.'}
                   </span>
                 </div>
 
