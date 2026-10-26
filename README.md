@@ -2,6 +2,8 @@
 
 Sistema avançado de gestão e inteligência comercial para equipes de vendas B2B e distribuição, orientado a dados e automação do histórico de compras.
 
+🌐 **Acesso Online (Produção)**: [https://crm-nexus-phi.vercel.app](https://crm-nexus-phi.vercel.app)
+
 ---
 
 ## 🎯 Principais Módulos
